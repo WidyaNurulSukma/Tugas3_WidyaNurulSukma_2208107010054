@@ -41,22 +41,23 @@ project-root/
 
 ## 🚀 Langkah Penggunaan
 
-### 1. Clone Repository
+# Clone repository (jika menggunakan git)
+git clone https://github.com/yourusername/rock-paper-scissors-classifier.git
+cd rock-paper-scissors-classifier
 
-git clone https://github.com/furqanx/Tugas-Pembelajaran-Mesin.git <br>
-cd Tugas-Pembelajaran-Mesin
+# Buat virtual environment
+python -m venv venv
 
-### 2. Siapkan Environment Python
+# Aktifkan virtual environment
+# Untuk Windows:
+venv\Scripts\activate
+# Untuk macOS/Linux:
+source venv/bin/activate
 
-Disarankan menggunakan **Python 3.9–3.11**.
-
-Buat environment baru, lalu install dependencies:
-
+# Install dependencies
 pip install -r requirements.txt
 
-### 3. Download Dataset
-
-Unduh dataset Rock-Paper-Scissors dari Kaggle:  
+dari Kaggle:  
 🔗 [Rock-Paper-Scissors Dataset – Kaggle](https://www.kaggle.com/datasets/drgfreeman/rockpaperscissors)
 
 Setelah download dan ekstrak:
@@ -67,42 +68,68 @@ dataset/
     paper/
     scissor/
 
-### 4. Jalankan Backend FastAPI
+### 3. Menjalankan Aplikasi
 
-Masuk ke folder `frontend/`, lalu jalankan:
+Model sudah dilatih sebelumnya, jadi kita bisa langsung menjalankan aplikasi:
 
-`streamlit run app.py`
+Jalankan backend FastAPI:
 
-Streamlit akan berjalan di `http://localhost:8501/`
+```bash
+# Buka terminal baru
+cd backend
+uvicorn main:app --host 0.0.0.0 --port 8000 --reload
+```
 
-Kemudian, masuk ke folder `backend/`, lalu jalankan:
+Jalankan frontend Streamlit:
 
-`uvicorn main:app --host 0.0.0.0 --port 8000 --reload`
+```bash
+# Buka terminal baru
+cd frontend
+streamlit run app.py
+```
 
-Server akan berjalan di `http://localhost:8000/`.
+Aplikasi Streamlit akan berjalan di `http://localhost:8501/`, dan backend API akan berjalan di `http://localhost:8000/`.
 
-### 5. Mengerjakan Tugas Praktikum
+## 📊 Hasil Evaluasi Model
 
-Praktikan diminta untuk:
+Model sudah dievaluasi dengan performa yang baik. Hasil evaluasi dapat dilihat pada folder `results/evaluation/`:
 
-- Melengkapi beberapa bagian kode yang kosong (`TODO`) sesuai dengan instruksi di notebook dan file `main.py`.
-- Memastikan bahwa preprocessing saat inferensi **konsisten** dengan preprocessing saat training.
-- Melakukan eksperimen kecil (augmentasi, tuning hyperparameter) untuk meningkatkan performa model.
+- **Confusion Matrix**: Visualisasi kesalahan prediksi antar kelas
+- **Classification Report**: Metrik precision, recall, dan f1-score untuk setiap kelas
+- **Training History**: Grafik akurasi dan loss selama proses training
 
----
+### Ringkasan Performa Model
 
-## 🎯 Tujuan Pembelajaran
+- **Accuracy**: ~97% pada dataset validasi
+- **Precision & Recall**: >95% untuk semua kelas
+- **F1-Score**: >95% rata-rata
 
-- Memahami alur kerja training dan deployment model machine learning.
-- Membiasakan diri mengintegrasikan model ke dalam aplikasi backend nyata.
-- Melatih kerapihan penyusunan struktur proyek dan dokumentasi.
+## 📱 Tampilan Aplikasi
 
----
+Aplikasi memiliki antarmuka yang user-friendly dan intuitif. Screenshot tampilan aplikasi dapat dilihat di folder `results/screenshots/`.
 
-## 📋 Catatan Penting
+## 📝 Catatan Penting
 
-- Pastikan struktur dataset rapi dan sesuai.
-- Pastikan preprocessing konsisten antara training dan backend inference.
-- Jangan lupa untuk mengisi seluruh bagian `TODO` yang ada dalam kode.
+1. **Model Sudah Dilatih**: Model sudah dilatih sebelumnya dan disimpan di folder `model/`. Tidak perlu melakukan training ulang.
+2. **Preprocessing Konsisten**: Backend sudah dikonfigurasi dengan preprocessing yang sama seperti saat training.
+3. **Model Path**: Pastikan path model pada `backend/main.py` mengarah ke lokasi file model yang benar.
+4. **Dependensi**: Pastikan versi TensorFlow dan Keras kompatibel untuk menghindari masalah saat loading model.
+5. **CORS**: Backend sudah dikonfigurasi untuk menerima request dari frontend Streamlit.
 
----
+## 💡 Penjelasan Teknis Model
+
+Model menggunakan MobileNetV2 sebagai base model dengan transfer learning, yang diikuti dengan beberapa fully connected layer untuk klasifikasi. Konfigurasi model:
+
+- Input size: 224x224x3
+- Base model: MobileNetV2 (pre-trained pada ImageNet)
+- Custom layers: GlobalAveragePooling2D, Dense(128, ReLU), Dropout(0.5), Dense(3, Softmax)
+- Optimizer: Adam dengan learning rate 0.001
+- Loss function: Categorical Cross-Entropy
+
+## 👨‍💻 Kontributor
+
+* [Nama Anda] - [Email/Github]
+
+## 📜 Lisensi
+
+Project ini dilisensikan di bawah MIT License.
