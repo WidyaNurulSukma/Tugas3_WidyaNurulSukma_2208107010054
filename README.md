@@ -1,28 +1,29 @@
 # Rock-Paper-Scissors Classification Project 🪨📄✂️
 
-## 📚 Project Description
+## 📚 Deskripsi Proyek
 
-This project builds a simple image classification system using **Deep Learning** with **Transfer Learning** architecture (MobileNetV2). The system classifies images into three categories: **Rock**, **Paper**, and **Scissors**.
+Proyek ini bertujuan untuk membangun sistem klasifikasi gambar sederhana menggunakan **Deep Learning** dengan arsitektur **Transfer Learning** (menggunakan MobileNetV2).  
+Gambar yang diklasifikasikan terdiri dari tiga kategori: **Rock**, **Paper**, dan **Scissors**.
 
-The trained model is integrated into a **FastAPI**-based backend application, enabling real-time image prediction through an API.
+Model yang dilatih kemudian akan diintegrasikan ke dalam aplikasi backend berbasis **FastAPI**, sehingga bisa menerima gambar dan memberikan hasil prediksi secara real-time.
 
-## 🛠️ Technologies Used
+## 🛠️ Teknologi yang Digunakan
 
-- **TensorFlow / Keras** — Building and training the image classification model
-- **FastAPI** — Creating the REST API backend
-- **Uvicorn** — ASGI server for running FastAPI
-- **PIL (Pillow)** — Image processing
-- **NumPy** — Numerical data manipulation
-- **scikit-learn** — Model evaluation (classification report, confusion matrix)
+- **TensorFlow / Keras** — Untuk membangun dan melatih model klasifikasi gambar.
+- **FastAPI** — Untuk membangun backend REST API.
+- **Uvicorn** — Sebagai ASGI server untuk menjalankan FastAPI.
+- **PIL (Pillow)** — Untuk memproses gambar.
+- **NumPy** — Untuk manipulasi data numerik.
+- **scikit-learn** — Untuk evaluasi model (classification report, confusion matrix).
 
-## 📂 Project Structure
+## 📂 Struktur Folder Proyek
 
 ```
 project-root/
 ├── backend/
-│   └── main.py         # FastAPI backend code
+│   └── main.py         # Kode backend FastAPI
 ├── model/
-│   └── best_transfer.h5 # Saved trained model
+│   └── best_transfer.h5 # Model hasil training yang disimpan
 ├── dataset/
 │   ├── rock/
 │   ├── paper/
@@ -31,34 +32,40 @@ project-root/
 └── requirements.txt
 ```
 
-## 🚀 Getting Started
+## 🚀 Langkah Penggunaan
 
-### Clone the repository
+### Clone repository
 ```bash
 git clone https://github.com/WidyaNurulSukma/Tugas3_WidyaNurulSukma_2208107010054.git
 cd rock-paper-scissors-classifier
 ```
 
-### Set up virtual environment
+### Buat virtual environment
 ```bash
-# Create virtual environment
 python -m venv venv
+```
 
-# Activate virtual environment
-# For Windows:
+### Aktifkan virtual environment
+#### Untuk Windows:
+```bash
 venv\Scripts\activate
-# For macOS/Linux:
+```
+#### Untuk macOS/Linux:
+```bash
 source venv/bin/activate
+```
 
-# Install dependencies
+### Install dependencies
+```bash
 pip install -r requirements.txt
 ```
 
 ### Dataset
-Download the dataset from Kaggle:  
+Dari Kaggle:  
 🔗 [Rock-Paper-Scissors Dataset – Kaggle](https://www.kaggle.com/datasets/drgfreeman/rockpaperscissors)
 
-After downloading and extracting, organize the dataset into folders:
+Setelah download dan ekstrak:
+- Susun dataset ke dalam folder:
 ```
 dataset/
     rock/
@@ -66,64 +73,71 @@ dataset/
     scissor/
 ```
 
-### Running the Application
+### Menjalankan Aplikasi
 
-The model has been pre-trained, so you can immediately run the application:
+Model sudah dilatih sebelumnya, jadi kita bisa langsung menjalankan aplikasi:
 
-#### Run the FastAPI backend:
+#### Jalankan backend FastAPI:
 ```bash
+# Buka terminal baru
 cd backend
 uvicorn main:app --host 0.0.0.0 --port 8000 --reload
 ```
 
-#### Run the Streamlit frontend:
+#### Jalankan frontend Streamlit:
 ```bash
+# Buka terminal baru
 cd frontend
 streamlit run app.py
 ```
 
-The Streamlit application will run at `http://localhost:8501/`, and the backend API will run at `http://localhost:8000/`.
+Aplikasi Streamlit akan berjalan di `http://localhost:8501/`, dan backend API akan berjalan di `http://localhost:8000/`.
 
-## 📊 Model Evaluation Results
+## 📊 Hasil Evaluasi Model
 
-The model has been evaluated with good performance. Evaluation results can be found in the `results/evaluation/` folder:
+Model sudah dievaluasi dengan performa yang baik. Hasil evaluasi dapat dilihat pada folder `results/evaluation/`:
 
-- **Confusion Matrix**: Visualization of prediction errors between classes
-- **Classification Report**: Precision, recall, and f1-score metrics for each class
-- **Training History**: Accuracy and loss graphs during the training process
+- **Confusion Matrix**: Visualisasi kesalahan prediksi antar kelas
+  ![image](https://github.com/user-attachments/assets/e70f3cc0-9da7-439d-b284-b8943b55bb1c)
 
-### Model Performance Summary
+- **Classification Report**: Metrik precision, recall, dan f1-score untuk setiap kelas
+  ![image](https://github.com/user-attachments/assets/bf9a9a39-3084-4086-945e-82d86ae30fbe)
 
-- **Accuracy**: ~97% on validation dataset
-- **Precision & Recall**: >95% for all classes
-- **F1-Score**: >95% average
+### Ringkasan Performa Model
 
-## 📱 Application Interface
+- **Accuracy**: 98,81% (0.9881)
+- **Precision & Recall**: Precision berkisar antara 98,41% hingga 99,19%, dan Recall berkisar antara 97,70% hingga 99,20%
+- **F1-Score**:  Berkisar antara 98,27% hingga 99,19%, dengan rata-rata tertimbang 98,81%
 
-The application has a user-friendly and intuitive interface. Screenshots can be found in the `results/screenshots/` folder.
+## 📱 Tampilan Aplikasi beserta hasil prediksi
+![WhatsApp Image 2025-05-11 at 10 20 39_1c97f914](https://github.com/user-attachments/assets/e40c4be0-75ac-4db5-a907-25d32d76541a)
+![WhatsApp Image 2025-05-11 at 10 03 37_94dd7cfa](https://github.com/user-attachments/assets/0d55b788-bfaf-4c76-ab5a-b056295252d7)
+![WhatsApp Image 2025-05-11 at 10 06 32_15c836fd](https://github.com/user-attachments/assets/9e3cf35f-6bb7-4e45-9e97-58ae86211d45)
+![WhatsApp Image 2025-05-11 at 10 08 25_b8b24168](https://github.com/user-attachments/assets/906fb7a0-b87c-4a10-ba63-2cae1cc6905d)
 
-## 📝 Important Notes
 
-1. **Pre-trained Model**: The model has been pre-trained and saved in the `model/` folder. No need to retrain.
-2. **Consistent Preprocessing**: The backend is configured with the same preprocessing as during training.
-3. **Model Path**: Ensure the model path in `backend/main.py` points to the correct model file location.
-4. **Dependencies**: Make sure TensorFlow and Keras versions are compatible to avoid issues when loading the model.
-5. **CORS**: The backend is configured to accept requests from the Streamlit frontend.
+## 📝 Catatan Penting
 
-## 💡 Technical Model Explanation
+1. **Model Sudah Dilatih**: Model sudah dilatih sebelumnya dan disimpan di folder `model/`. Tidak perlu melakukan training ulang.
+2. **Preprocessing Konsisten**: Backend sudah dikonfigurasi dengan preprocessing yang sama seperti saat training.
+3. **Model Path**: Pastikan path model pada `backend/main.py` mengarah ke lokasi file model yang benar.
+4. **Dependensi**: Pastikan versi TensorFlow dan Keras kompatibel untuk menghindari masalah saat loading model.
+5. **CORS**: Backend sudah dikonfigurasi untuk menerima request dari frontend Streamlit.
 
-The model uses MobileNetV2 as the base model with transfer learning, followed by several fully connected layers for classification. Model configuration:
+## 💡 Penjelasan Teknis Model
+
+Model menggunakan MobileNetV2 sebagai base model dengan transfer learning, yang diikuti dengan beberapa fully connected layer untuk klasifikasi. Konfigurasi model:
 
 - Input size: 224x224x3
-- Base model: MobileNetV2 (pre-trained on ImageNet)
+- Base model: MobileNetV2 (pre-trained pada ImageNet)
 - Custom layers: GlobalAveragePooling2D, Dense(128, ReLU), Dropout(0.5), Dense(3, Softmax)
-- Optimizer: Adam with learning rate 0.001
+- Optimizer: Adam dengan learning rate 0.001
 - Loss function: Categorical Cross-Entropy
 
-## 👨‍💻 Contributors
+## 👨‍💻 Kontributor
 
 * Widya Nurul Sukma - widyasukma934@gmail.com
 
-## 📜 License
+## 📜 Lisensi
 
-This project is licensed under the MIT License.
+Project ini dilisensikan di bawah MIT License.
