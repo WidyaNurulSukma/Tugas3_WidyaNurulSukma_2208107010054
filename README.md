@@ -111,8 +111,13 @@ Model sudah dievaluasi dengan performa yang baik. Hasil evaluasi dapat dilihat p
 
 ## 📱 Tampilan Aplikasi beserta hasil prediksi
 ![WhatsApp Image 2025-05-11 at 10 20 39_1c97f914](https://github.com/user-attachments/assets/e40c4be0-75ac-4db5-a907-25d32d76541a)
+### Predict Paper
 ![WhatsApp Image 2025-05-11 at 10 03 37_94dd7cfa](https://github.com/user-attachments/assets/0d55b788-bfaf-4c76-ab5a-b056295252d7)
+
+### Predict Rock
 ![WhatsApp Image 2025-05-11 at 10 06 32_15c836fd](https://github.com/user-attachments/assets/9e3cf35f-6bb7-4e45-9e97-58ae86211d45)
+
+### Predict Scissors
 ![WhatsApp Image 2025-05-11 at 10 08 25_b8b24168](https://github.com/user-attachments/assets/906fb7a0-b87c-4a10-ba63-2cae1cc6905d)
 
 
