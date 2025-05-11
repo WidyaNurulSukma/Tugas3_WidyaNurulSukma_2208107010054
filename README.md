@@ -98,7 +98,7 @@ Aplikasi Streamlit akan berjalan di `http://localhost:8501/`, dan backend API ak
 Model sudah dievaluasi dengan performa yang baik. Hasil evaluasi dapat dilihat pada folder `results/evaluation/`:
 
 - **Confusion Matrix**: Visualisasi kesalahan prediksi antar kelas
-- ![image](https://github.com/user-attachments/assets/e70f3cc0-9da7-439d-b284-b8943b55bb1c)
+![image](https://github.com/user-attachments/assets/e70f3cc0-9da7-439d-b284-b8943b55bb1c)
 
 - **Classification Report**: Metrik precision, recall, dan f1-score untuk setiap kelas
 - ![image](https://github.com/user-attachments/assets/bf9a9a39-3084-4086-945e-82d86ae30fbe)
