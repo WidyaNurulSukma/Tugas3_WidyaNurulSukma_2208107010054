@@ -2,6 +2,8 @@ import streamlit as st
 import requests
 from PIL import Image
 import io
+from io import BytesIO
+
 
 API_URL = "http://localhost:8000/predict/"
 
@@ -27,9 +29,15 @@ if img:
     if st.button("Predict"):
         with st.spinner("Memproses..."):
             # Siapkan file untuk dikirim ke backend
-            buf = io.BytesIO()
+            buf = BytesIO()
+
+            # Tambahkan ini untuk konversi RGBA → RGB
+            if img.mode == 'RGBA':
+                img = img.convert('RGB')
+
             img.save(buf, format="JPEG")
             buf.seek(0)
+
             files = {"file": buf.getvalue()}
             response = requests.post(API_URL, files=files)
             if response.ok:

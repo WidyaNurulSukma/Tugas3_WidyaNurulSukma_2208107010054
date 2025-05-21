@@ -22,7 +22,7 @@ app.add_middleware(
 
 # load model
 BASE_DIR   = Path(__file__).resolve().parent
-MODEL_PATH = BASE_DIR.parent / 'model' / 'best_transfer.h5'
+MODEL_PATH = BASE_DIR.parent / 'model' / 'best_transfer.keras'
 
 if os.path.exists(MODEL_PATH):
     model = tf.keras.models.load_model(str(MODEL_PATH))
@@ -46,7 +46,14 @@ def preprocess_pipeline(image: Image.Image, IMG_SIZE = (224, 224)) -> np.ndarray
     """
     
     # TODO: Lengkapi proses preprocessing di bawah ini
+    # Resize gambar ke IMG_SIZE
+    image = image.resize(IMG_SIZE)
     
+    # Convert ke numpy array
+    arr = np.array(image, dtype=np.float32)
+    
+    # Rescaling ke [0,1]
+    arr = arr / 255.0
     return arr  # pastikan mengembalikan array hasil preprocessing
 
 # endpoint untuk menerima input dan menghasilkan prediksi
